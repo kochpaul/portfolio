@@ -1,0 +1,43 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const storyblokApi = useStoryblokApi();
+
+  const links = await storyblokApi.getAll("cdn/links", {
+    version: import.meta.env.DEV ? "draft" : "published",
+  });
+
+  return links
+    .filter((link) => !link.is_folder && link.slug.startsWith("projects/"))
+    .map((link) => ({
+      params: { slug: link.slug.replace("projects/", "") },
+    }));
+}
+
+const { slug } = Astro.params;
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get(`cdn/stories/projects/${slug}`, {
+  version: import.meta.env.DEV ? "draft" : "published",
+});
+
+const story = data.story;
+---
+
+<BaseLayout>
+  {
+    story ? (
+      <StoryblokComponent blok={story.content} />
+    ) : (
+      <section class="max-w-2xl mx-auto py-20 px-4 text-center">
+        <h1 class="text-3xl font-bold text-white">Projekt nicht gefunden</h1>
+        <p class="text-zinc-400 mt-2">
+          Dieses Projekt existiert nicht oder wurde entfernt.
+        </p>
+      </section>
+    )
+  }
+</BaseLayout>

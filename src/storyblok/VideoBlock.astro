@@ -1,0 +1,39 @@
+---
+const { blok } = Astro.props;
+
+function isYouTubeOrVimeo(url: string): boolean {
+  return (
+    url.includes("youtube.com") ||
+    url.includes("youtu.be") ||
+    url.includes("vimeo.com")
+  );
+}
+---
+
+<div class="my-8">
+  {
+    isYouTubeOrVimeo(blok.url) ? (
+      <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-lg">
+        <iframe
+          src={blok.url}
+          class="absolute top-0 left-0 w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        />
+      </div>
+    ) : (
+      <video class="w-full rounded-lg shadow-lg" controls preload="metadata">
+        <source src={blok.url} type="video/mp4" />
+        Dein Browser unterstützt dieses Videoformat nicht.
+      </video>
+    )
+  }
+
+  {
+    blok.caption && (
+      <p class="text-sm text-zinc-400 mt-2 text-center italic">
+        {blok.caption}
+      </p>
+    )
+  }
+</div>

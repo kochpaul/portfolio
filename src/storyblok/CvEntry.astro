@@ -1,0 +1,14 @@
+---
+const { blok } = Astro.props;
+console.log(blok);
+---
+
+<div class="mb-8">
+  <div class="flex justify-between items-start">
+    <h3 class="text-xl font-semibold text-white">{blok.title}</h3>
+    <span class="text-sm text-zinc-400 whitespace-nowrap ml-2"
+      >{blok.timespan}</span
+    >
+  </div>
+  <p class="text-zinc-300 text-sm mt-1">{blok.description}</p>
+</div>

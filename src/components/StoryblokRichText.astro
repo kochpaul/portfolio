@@ -1,0 +1,106 @@
+---
+import RichTextRenderer from "storyblok-rich-text-astro-renderer/RichTextRenderer.astro";
+import type { RichTextType } from "storyblok-rich-text-astro-renderer";
+
+// Props
+export interface Props {
+  content: RichTextType;
+}
+
+// Richtext-Content kommt aus den Props
+const { content } = Astro.props;
+
+// Schema definieren
+const richTextSchema = {
+  nodes: {
+    heading: (node: { attrs: { level: number } }) => {
+      const level = node.attrs?.level || 2;
+      const size =
+        level === 1
+          ? "text-4xl"
+          : level === 2
+            ? "text-3xl"
+            : level === 3
+              ? "text-2xl"
+              : "text-xl";
+
+      return {
+        component: `h${level}`,
+        props: {
+          class: `mb-4 font-bold ${size} `,
+        },
+      };
+    },
+    paragraph: () => ({
+      component: "p",
+      props: {
+        class: "mb-4 text-base sm:text-lg ",
+      },
+    }),
+    list: (node: { attrs: { ordered: boolean } }) => ({
+      component: node.attrs?.ordered ? "ol" : "ul",
+      props: {
+        class: `${node.attrs?.ordered ? "list-decimal" : "list-disc"} pl-5 mb-4`,
+      },
+    }),
+    list_item: () => ({
+      component: "li",
+      props: {
+        class: "mb-2",
+      },
+    }),
+    quote: () => ({
+      component: "blockquote",
+      props: {
+        class: "border-l-4 border-blue-400 pl-4 italic  mb-6",
+      },
+    }),
+    image: (node: { attrs: { src: string; alt?: string } }) => ({
+      component: "img",
+      props: {
+        src: node.attrs.src,
+        alt: node.attrs.alt || "",
+        class: "rounded-lg shadow-md my-4",
+      },
+    }),
+  },
+  marks: {
+    bold: () => ({
+      component: "strong",
+      props: {
+        class: "font-bold",
+      },
+    }),
+    italic: () => ({
+      component: "em",
+      props: {
+        class: "italic",
+      },
+    }),
+    link: (mark: { attrs: { href: string } }) => ({
+      component: "a",
+      props: {
+        href: mark.attrs?.href,
+        class: "text-blue-600 underline hover:text-blue-900",
+        target: mark.attrs?.href?.startsWith("http") ? "_blank" : undefined,
+        rel: mark.attrs?.href?.startsWith("http")
+          ? "noopener noreferrer"
+          : undefined,
+      },
+    }),
+  },
+};
+
+// Fallback-Resolver für Storyblok-Komponenten
+const resolver = (blok: any) => ({
+  component: "div",
+  props: { class: "storyblok-component" },
+  content: blok.text || "",
+});
+---
+
+<RichTextRenderer
+  content={content}
+  schema={richTextSchema}
+  resolver={resolver}
+/>

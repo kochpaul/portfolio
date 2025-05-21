@@ -1,0 +1,42 @@
+---
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+const { blok } = Astro.props;
+---
+
+<section class="max-w-4xl mx-auto">
+  <div
+    class="my-12 sm:my-20 mx-2 sm:mx-4 py-6 sm:py-12 px-4 md:px-8 border border-zinc-800 rounded-lg shadow-lg"
+  >
+    <div class="flex flex-col sm:flex-row gap-4 justify-between mb-8">
+      <h2 class="text-3xl font-bold text-white">{blok.title}</h2>
+      {
+        blok.cta_url && (
+          <a
+            href={blok.cta_url}
+            target="_blank"
+            class="flex gap-2 justify-center text-sm text-center bg-white text-black px-4 py-2 rounded shadow hover:bg-gray-200 transition"
+          >
+            {blok.cta_text || "Download CV"}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+              />
+            </svg>
+          </a>
+        )
+      }
+    </div>
+    <div>
+      {blok.items.map((entry) => <StoryblokComponent blok={entry} />)}
+    </div>
+  </div>
+</section>

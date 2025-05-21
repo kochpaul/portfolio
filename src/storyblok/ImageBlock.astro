@@ -1,0 +1,18 @@
+---
+const { blok } = Astro.props;
+---
+
+<figure class="w-full my-6">
+  <img
+    src={blok.image.filename}
+    alt={blok.alt || ""}
+    class="rounded-lg shadow max-w-full h-auto mx-auto"
+  />
+  {
+    blok.caption && (
+      <figcaption class="text-sm text-center mt-2 text-zinc-400">
+        {blok.caption}
+      </figcaption>
+    )
+  }
+</figure>

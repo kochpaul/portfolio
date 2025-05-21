@@ -1,0 +1,21 @@
+---
+import StoryblokRichText from "../components/StoryblokRichText.astro";
+
+const { blok } = Astro.props;
+---
+
+<div class="grid md:grid-cols-2 gap-8 items-center my-8 pt-6 sm:pt-12">
+  {
+    blok.image_left && (
+      <img src={blok.image.filename} alt="" class="rounded-lg shadow" />
+    )
+  }
+  <div class="prose dark:prose-invert">
+    <div><StoryblokRichText content={blok.text} /></div>
+  </div>
+  {
+    !blok.image_left && (
+      <img src={blok.image.filename} alt="" class="rounded-lg shadow" />
+    )
+  }
+</div>

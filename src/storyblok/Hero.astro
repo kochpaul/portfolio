@@ -1,0 +1,12 @@
+---
+import { BackgroundHero } from "../components/BackgroundHero.tsx";
+
+const { blok } = Astro.props;
+---
+
+<BackgroundHero
+  client:load
+  title={blok.title}
+  subtitle={blok.subtitle}
+  button_text={blok.button_text}
+/>

@@ -1,0 +1,15 @@
+---
+import StoryblokRichText from "../components/StoryblokRichText.astro";
+
+const { blok } = Astro.props;
+---
+
+<div class="prose dark:prose-invert max-w-none pt-6 sm:pt-12">
+  {
+    blok.text && (
+      <div>
+        <StoryblokRichText content={blok.text} />
+      </div>
+    )
+  }
+</div>
