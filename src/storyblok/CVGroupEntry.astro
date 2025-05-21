@@ -1,0 +1,28 @@
+---
+// Datei: CVGroupEntry.astro
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+const { blok } = Astro.props;
+---
+
+<div class="mb-10">
+  <div class="flex justify-between items-start mb-2">
+    <h3 class="text-xl font-bold text-white">{blok.title}</h3>
+    <span class="text-sm text-zinc-400 whitespace-nowrap ml-2">
+      {blok.timespan}
+    </span>
+  </div>
+  {blok.description && (
+    <p class="text-zinc-300 text-sm mb-4">{blok.description}</p>
+  )}
+  
+  <!-- Timeline-Wrapper -->
+  <div class="relative pl-6 border-l border-zinc-700 space-y-12">
+    {blok.entries.map(entry => (
+      <div class="relative">
+        <!-- Optional: Bullet -->
+        <div class="absolute -left-7 top-3 w-2 h-2 bg-zinc-300 rounded-full"></div>
+        <StoryblokComponent blok={entry} />
+      </div>
+    ))}
+  </div>
+</div>
