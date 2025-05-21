@@ -1,0 +1,78 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const storyblokApi = useStoryblokApi();
+const projects = await storyblokApi.getAll("cdn/stories", {
+  version: import.meta.env.DEV ? "draft" : "published",
+  starts_with: "projects/",
+});
+
+// Sortiere lokal nach "order" (aufsteigend)
+projects.sort((a, b) => (a.content.index ?? 999) - (b.content.index ?? 999));
+---
+
+<BaseLayout>
+  <section class="max-w-7xl mx-auto px-4 py-20 sm:py-32">
+    <h1 class="text-4xl font-bold text-white mb-4 text-center">Projekte</h1>
+    <h2 class="text-zinc-400 text-lg text-center mb-12 max-w-2xl mx-auto">
+      Eine Auswahl aktueller Projekte aus Webentwicklung, KI, Eventlösungen &
+      Digitalisierung.
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        projects.map((project) => {
+          const p = project.content;
+          return (
+            <a
+              href={`/projects/${project.slug.replace("projects/", "")}`}
+              class="bg-zinc-900 border border-zinc-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
+            >
+              {p.thumbnail && (
+                <img
+                  src={p.thumbnail.filename}
+                  alt={p.thumbnail.alt || p.title}
+                  class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              )}
+
+              <div class="p-6">
+                <h2 class="text-xl font-semibold text-white mb-2">{p.title}</h2>
+
+                {p.timespan && (
+                  <p class="text-xs text-zinc-400 mb-2">{p.timespan}</p>
+                )}
+
+                {p.pitch && (
+                  <p class="text-sm text-zinc-400 mb-4 line-clamp-3">
+                    {p.pitch}
+                  </p>
+                )}
+
+                <div class="flex flex-wrap gap-2 mb-2">
+                  {p.tags?.map((tag) =>
+                    typeof tag === "object" ? (
+                      <span class="text-xs bg-zinc-800 text-white px-3 py-1 rounded-full">
+                        {tag.tag}
+                      </span>
+                    ) : null
+                  )}
+                </div>
+
+                {p.live_url && (
+                  <span class="inline-flex items-center gap-2 text-green-400 text-xs">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                    </span>
+                    Live verfügbar
+                  </span>
+                )}
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </section>
+</BaseLayout>

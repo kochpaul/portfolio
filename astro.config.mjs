@@ -28,6 +28,7 @@ export default defineConfig({
         TwoColumnBlock: "storyblok/TwoColumnBlock",
         ImageBlock: "storyblok/ImageBlock",
         VideoBlock: "storyblok/VideoBlock",
+        FeaturedProject: "storyblok/FeaturedProject",
       },
     }),
     tailwind(),

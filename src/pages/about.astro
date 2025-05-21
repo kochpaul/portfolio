@@ -1,0 +1,19 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/about", {
+  version: "draft",
+});
+
+const story = data.story;
+---
+
+<BaseLayout>
+  <div class="max-w-4xl mx-auto px-4 py-28 sm:py-32">
+      <StoryblokComponent blok={story.content} />
+      
+  </div>
+</BaseLayout>
