@@ -31,8 +31,9 @@ export default defineConfig({
         FeaturedProject: "storyblok/FeaturedProject",
         CVGroupEntry: "storyblok/CVGroupEntry",
         SkillSection: "storyblok/SkillSection",
-        // SkillItem: "storyblok/SkillItem",
-        SplitSection: "storyblok/SplitSection"
+        SplitSection: "storyblok/SplitSection",
+        KPISection: "storyblok/KPISection",
+        KPIItem: "storyblok/KPIItemWrapper",
       },
     }),
     tailwind(),

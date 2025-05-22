@@ -75,7 +75,10 @@ export function BackgroundHero({
           {/* Hauptüberschrift – animiert */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
             {title.split(" ").map((word, wordIndex) => (
-              <span key={wordIndex} className="inline-block mr-2 md:mr-4 last:mr-0">
+              <span
+                key={wordIndex}
+                className="inline-block mr-2 md:mr-4 last:mr-0"
+              >
                 {word.split("").map((letter, letterIndex) => (
                   <motion.span
                     key={`${wordIndex}-${letterIndex}`}
@@ -166,35 +169,34 @@ export function BackgroundHero({
         </motion.div>
       </div>
       <motion.div
-  initial={{ opacity: 0, y: -10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{
-    delay: 2,
-    duration: 1.5,
-    repeat: Infinity,
-    repeatType: "reverse",
-    ease: "easeInOut",
-  }}
-  className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
->
-  <a href="#next-section" aria-label="Scroll nach unten">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-10 h-10 text-white"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
-      />
-    </svg>
-  </a>
-</motion.div>
-
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 2,
+          duration: 1.5,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+      >
+        
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-10 h-10 text-white"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+            />
+          </svg>
+        
+      </motion.div>
     </div>
   );
 }

@@ -1,0 +1,11 @@
+---
+import KPIItem from "../components/KPIItem.tsx"; // Dein React-Component
+const { blok } = Astro.props;
+---
+
+<KPIItem
+  client:only="react"
+  label={blok.label}
+  value={blok.value}
+  unit={blok.unit}
+/>
