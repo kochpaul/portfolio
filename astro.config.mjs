@@ -29,7 +29,10 @@ export default defineConfig({
         ImageBlock: "storyblok/ImageBlock",
         VideoBlock: "storyblok/VideoBlock",
         FeaturedProject: "storyblok/FeaturedProject",
-        CVGroupEntry: "storyblok/CVGroupEntry"
+        CVGroupEntry: "storyblok/CVGroupEntry",
+        SkillSection: "storyblok/SkillSection",
+        // SkillItem: "storyblok/SkillItem",
+        SplitSection: "storyblok/SplitSection"
       },
     }),
     tailwind(),

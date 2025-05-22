@@ -2,6 +2,7 @@
 import { useStoryblokApi } from "@storyblok/astro";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { BackButton } from "../../components/BackButton";
 
 export async function getStaticPaths() {
   const storyblokApi = useStoryblokApi();
@@ -26,11 +27,15 @@ const { data } = await storyblokApi.get(`cdn/stories/projects/${slug}`, {
 
 const story = data.story;
 ---
-
 <BaseLayout>
   {
     story ? (
-      <StoryblokComponent blok={story.content} />
+      <>
+        <StoryblokComponent blok={story.content} />
+        <div class="fixed bottom-12 right-10 z-50">
+          <BackButton href={"/projects"}/>
+        </div>
+      </>
     ) : (
       <section class="max-w-2xl mx-auto py-20 px-4 text-center">
         <h1 class="text-3xl font-bold text-white">Projekt nicht gefunden</h1>
@@ -41,3 +46,4 @@ const story = data.story;
     )
   }
 </BaseLayout>
+
