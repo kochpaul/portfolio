@@ -1,0 +1,12 @@
+---
+import { HeroHighlightText } from "../components/Highlitgh";
+
+const { blok } = Astro.props;
+---
+
+<HeroHighlightText
+  textBefore={blok.text_before}
+  highlight={blok.highlight}
+  textAfter={blok.text_after}
+  client:load
+/>

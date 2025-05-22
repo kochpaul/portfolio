@@ -5,31 +5,39 @@ import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 const { blok } = Astro.props;
 ---
 
-<section class="py-24 bg-black text-white overflow-hidden" {...storyblokEditable(blok)}>
+<section
+  class="py-24 bg-black text-white overflow-hidden min-h-[100vh]"
+  {...storyblokEditable(blok)}
+>
   <div class="max-w-6xl mx-auto px-4 text-center">
-    {blok.title && <h2 class="text-3xl md:text-4xl font-bold mb-16">{blok.title}</h2>}
-    
+    {
+      blok.title && (
+        <h2 class="text-3xl md:text-4xl font-bold mb-16">{blok.title}</h2>
+      )
+    }
+
     <div class="flex flex-wrap gap-6 justify-center">
-      {blok.items?.map((item, index) => (
-        <div
-          class="relative rounded-xl overflow-hidden border border-white/10 shadow-lg bg-neutral-900/40 backdrop-blur-md p-6 sm:p-8 flex-shrink-0"
-          style="width: 350px;"
-        >
-          <Squares 
-            client:load 
-            speed={0.25 + index * 0.1} 
-            direction="diagonal" 
-            squareSize={40} 
-            borderColor="#333" 
-            hoverFillColor="#222" 
-            className="absolute inset-0 z-0"
-          />
-          <div class="relative z-10">
-            <StoryblokComponent blok={item} />
+      {
+        blok.items?.map((item, index) => (
+          <div
+            class="relative rounded-xl overflow-hidden border border-white/10 shadow-lg bg-neutral-900/40 backdrop-blur-md p-6 sm:p-8 flex-shrink-0"
+            style="width: 350px;"
+          >
+            <Squares
+              client:load
+              speed={0.25 + index * 0.1}
+              direction="diagonal"
+              squareSize={40}
+              borderColor="#333"
+              hoverFillColor="#222"
+              className="absolute inset-0 z-0"
+            />
+            <div class="relative z-10">
+              <StoryblokComponent blok={item} />
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
-

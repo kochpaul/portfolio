@@ -34,6 +34,7 @@ export default defineConfig({
         SplitSection: "storyblok/SplitSection",
         KPISection: "storyblok/KPISection",
         KPIItem: "storyblok/KPIItemWrapper",
+        USPSection: "storyblok/USPSection",
       },
     }),
     tailwind(),
