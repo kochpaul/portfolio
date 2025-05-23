@@ -125,7 +125,7 @@ export function BackgroundHero({
                   />
                 </svg>
               </span>
-              Webentwickler
+              Full Stack Developer
             </span>
             <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full border border-white/20 text-white bg-white/5 backdrop-blur-sm shadow-sm">
               <span className="w-5 h-5 bg-white/50 rounded-full">
@@ -180,22 +180,20 @@ export function BackgroundHero({
         }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
       >
-        
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-10 h-10 text-white"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
-            />
-          </svg>
-        
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-10 h-10 text-white"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+          />
+        </svg>
       </motion.div>
     </div>
   );
