@@ -30,7 +30,7 @@ export default function KPIItem({ label, value, unit = "" }: KPIProps) {
         bg-white/5 text-white backdrop-blur-md shadow-md hover:shadow-xl 
         transition-all transform hover:-translate-y-1"
     >
-      <div className="text-4xl sm:text-5xl font-bold text-purple-500 drop-shadow-sm mb-2">
+      <div className="text-4xl sm:text-5xl font-bold text-primary drop-shadow-sm mb-2">
         {count}
         {unit}
       </div>

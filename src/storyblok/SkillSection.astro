@@ -6,7 +6,7 @@ const { blok } = Astro.props;
 
 <section class="bg-black text-white" {...storyblokEditable(blok)}>
   <div class="max-w-4xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold mb-10">{blok.title}</h2>
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">{blok.title}</h2>
     <div class="flex flex-col gap-6">
       {
         blok.skills.map((skill) => (

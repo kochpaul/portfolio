@@ -18,7 +18,7 @@ const Highlight = ({
     <motion.span
       initial={{ backgroundSize: "0% 100%" }}
       whileInView={{ backgroundSize: "100% 100%" }}
-      transition={{ duration: 2, ease: "linear", delay: 0.3 }}
+      transition={{ duration: 2, ease: "linear", delay: 0.8 }}
       viewport={{ once: true, amount: 0.6 }}
       style={{
         backgroundRepeat: "no-repeat",
@@ -26,7 +26,7 @@ const Highlight = ({
         display: "inline",
       }}
       className={[
-        "relative inline-block pb-1 px-1 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500",
+        "relative inline-block pb-1 px-1 rounded-lg bg-gradient-to-r from-primary-gradientStart to-primary",
         className,
       ]
         .filter(Boolean)
@@ -77,7 +77,7 @@ export const HeroHighlightText = ({
       <motion.div
         className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
-          ...dotPattern("rgb(99 102 241)"),
+          ...dotPattern('rgb(var(--color-primary))'),
           WebkitMaskImage: useMotionTemplate`
             radial-gradient(
               200px circle at ${mouseX}px ${mouseY}px,
@@ -97,9 +97,9 @@ export const HeroHighlightText = ({
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: [20, -5, 0] }}
-        transition={{ duration: 0.5, ease: [0.4, 0.0, 0.2, 1], delay: 0.5 }}
+        transition={{ duration: 0.5, ease: [0.4, 0.0, 0.2, 1], delay: 0.2 }}
         viewport={{ once: true, amount: 0.6 }}
-        className="relative z-20 text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-white dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto"
+        className="relative z-20 text-2xl px-4 md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto"
       >
         {textBefore} <Highlight className="text-inherit">{highlight}</Highlight>{" "}
         {textAfter}

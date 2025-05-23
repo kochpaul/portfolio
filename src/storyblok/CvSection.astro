@@ -8,15 +8,15 @@ const { blok } = Astro.props;
     class="my-12 sm:my-20 mx-2 sm:mx-4 py-6 sm:py-12 px-4 md:px-8 border border-zinc-800 rounded-lg shadow-lg"
   >
     <div class="flex flex-col sm:flex-row gap-4 justify-between mb-8">
-      <h2 class="text-3xl font-bold text-white">{blok.title}</h2>
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-2 sm:mb-6 tracking-tight">{blok.title}</h2>
       {
         blok.cta_url && (
           <a
             href={blok.cta_url}
             target="_blank"
-            class="flex gap-2 justify-center text-sm text-center bg-white text-black px-4 py-2 rounded shadow hover:bg-gray-200 transition"
+            class="flex gap-2 h-9 justify-center text-sm text-center bg-gradient-to-r from-primary-gradientStart to-primary text-white px-4 py-2 rounded-full shadow hover:bg-gray-200 transition"
           >
-            {blok.cta_text || "Download CV"}
+            {blok.cta_text || "Lebenslauf herunterladen"}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

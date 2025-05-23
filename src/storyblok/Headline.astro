@@ -1,0 +1,21 @@
+---
+const { blok } = Astro.props;
+
+const baseStyles = {
+  h1: 'text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight',
+  h2: 'text-2xl sm:text-3xl md:text-5xl font-extrabold mb-6 tracking-tight',
+  h3: 'text-xl sm:text-2xl md:text-3xl font-extrabold mb-4 tracking-tight',
+  h4: 'text-lg sm:text-xl md:text-2xl text-zinc-300 mb-10 leading-relaxed font-medium',
+};
+
+const Tag = blok.tag || 'h1';
+const centerClass = blok.centered ? 'text-center' : '';
+const className = `${baseStyles[Tag] || ''} ${centerClass}`;
+---
+
+<section>
+    <Tag class={className}>
+      {blok.title}
+    </Tag>
+    <p class=`text-lg sm:text-xl md:text-2xl text-zinc-300 mb-10 leading-relaxed font-medium ${centerClass}`>{blok.subtitle}</p>
+</section>

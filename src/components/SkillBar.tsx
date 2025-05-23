@@ -36,7 +36,7 @@ export default function SkillBar({ name, value }: SkillBarProps) {
           initial={{ width: 0 }}
           animate={isInView ? { width: `${(value / 10) * 100}%` } : {}}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="h-3 bg-purple-600 rounded"
+          className="h-3 bg-primary rounded"
         />
       </div>
     </div>
