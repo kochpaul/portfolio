@@ -1,14 +1,19 @@
 ---
+import { useState } from "react";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 const { blok } = Astro.props;
 ---
 
-<section class="max-w-4xl mx-auto">
+<section class="max-w-4xl mx-auto relative">
   <div
     class="my-12 sm:my-20 mx-2 sm:mx-4 py-6 sm:py-12 px-4 md:px-8 border border-zinc-800 rounded-lg shadow-lg"
   >
     <div class="flex flex-col sm:flex-row gap-4 justify-between mb-8">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-2 sm:mb-6 tracking-tight">{blok.title}</h2>
+      <h2
+        class="text-4xl md:text-5xl font-extrabold mb-2 sm:mb-6 tracking-tight"
+      >
+        {blok.title}
+      </h2>
       {
         blok.cta_url && (
           <a
@@ -35,8 +40,46 @@ const { blok } = Astro.props;
         )
       }
     </div>
-    <div>
-      {blok.items.map((entry) => <StoryblokComponent blok={entry} />)}
+
+    <div
+      id="expandable-wrapper"
+      class="relative max-h-[550px] overflow-hidden transition-all duration-500"
+      data-expanded="false"
+    >
+      <div>
+        {blok.items.map((entry) => <StoryblokComponent blok={entry} />)}
+      </div>
+
+      <!-- Blur overlay -->
+      <div
+        id="blur-overlay"
+        class="absolute -bottom-4 sm:bottom-0 w-full h-32 bg-gradient-to-t from-black to-transparent pointer-events-none"
+      >
+      </div>
     </div>
+
+    <button
+      id="expand-button"
+      class="w-full mt-6 py-2 rounded-md text-sm text-white bg-black/70 backdrop-blur border border-zinc-700 hover:bg-black transition"
+      onclick="
+        const wrapper = document.getElementById('expandable-wrapper');
+        const blur = document.getElementById('blur-overlay');
+        const expanded = wrapper.getAttribute('data-expanded') === 'true';
+
+        if (!expanded) {
+          wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+          wrapper.setAttribute('data-expanded', 'true');
+          blur.style.display = 'none';
+          this.innerText = 'Weniger anzeigen';
+        } else {
+          wrapper.style.maxHeight = '550px';
+          wrapper.setAttribute('data-expanded', 'false');
+          blur.style.display = 'block';
+          this.innerText = 'Mehr anzeigen';
+        }
+      "
+    >
+      Mehr anzeigen
+    </button>
   </div>
 </section>
