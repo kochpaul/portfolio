@@ -13,9 +13,13 @@ const isImgLeft = blok.image_left;
 const layoutClass = isImgLeft ? "md:flex-row-reverse" : "md:flex-row";
 ---
 
-<section class="py-20 bg-black text-white" {...storyblokEditable(blok)}>
-  <div class={`max-w-7xl mx-auto px-4 md:px-8 flex flex-col ${layoutClass} items-center gap-12`}>
-    
+<section
+  class="py-12 sm:py-20 bg-black text-white"
+  {...storyblokEditable(blok)}
+>
+  <div
+    class={`max-w-7xl mx-auto px-4 md:px-8 flex flex-col ${layoutClass} items-center gap-12`}
+  >
     <!-- Bild -->
     <div class="w-full md:w-1/2">
       <img
@@ -27,7 +31,9 @@ const layoutClass = isImgLeft ? "md:flex-row-reverse" : "md:flex-row";
 
     <!-- Textinhalt -->
     <div class="w-full md:w-1/2">
-      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 tracking-tight">{content.title}</h2>
+      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 tracking-tight">
+        {content.title}
+      </h2>
 
       <!-- Zeitraum & Rolle -->
       <div class="text-sm text-zinc-400 mb-4">
@@ -38,17 +44,17 @@ const layoutClass = isImgLeft ? "md:flex-row-reverse" : "md:flex-row";
       <p class="text-zinc-300 text-lg mb-4">{content.pitch}</p>
 
       <!-- Tags -->
-      {content.tags?.length > 0 && (
-        <div class="flex flex-wrap gap-2 mb-6">
-          {content.tags.map((tag) => (
-            <span
-              class="text-xs font-medium px-3 py-1 rounded-full border border-primary text-primary"
-            >
-              {tag.tag}
-            </span>
-          ))}
-        </div>
-      )}
+      {
+        content.tags?.length > 0 && (
+          <div class="flex flex-wrap gap-2 mb-6">
+            {content.tags.map((tag) => (
+              <span class="text-xs font-medium px-3 py-1 rounded-full border border-primary text-primary">
+                {tag.tag}
+              </span>
+            ))}
+          </div>
+        )
+      }
 
       <!-- CTAs -->
       <div class="flex gap-4">
