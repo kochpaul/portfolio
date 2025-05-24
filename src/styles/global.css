@@ -1,27 +1,30 @@
 :root {
-  /* === SCHEME 1: Blau (aktiv) ===
-  --color-primary: 4 102 200;           
-  --color-primary-hover: 3 83 164;      
-  --color-primary-gradient-start: 0 40 85; 
-
-  
-  /* === SCHEME 2: Lila === */
-  /* --color-primary: 147 51 234;           
-  --color-primary-hover: 126 34 206;    
-  --color-primary-gradient-start: 168 85 247; 
-  */
-
-  
-  /* === SCHEME 3: Grün === */
-  /* --color-primary: 5 150 105;           
-  --color-primary-hover: 4 120 87;       
-  --color-primary-gradient-start: 6 95 70;  */
- 
-
-  
-  /* === SCHEME 4: Orange === */
-  --color-primary: 249 115 22;           
-  --color-primary-hover: 234 88 12;     
-  --color-primary-gradient-start: 194 65 12; 
- 
+  --color-primary: 249 115 22;
+  --color-primary-hover: 234 88 12;
+  --color-primary-gradient-start: 194 65 12;
 }
+
+/* Different Color-Themes if needed */
+/* [data-theme="blue"] {
+  --color-primary: 59 130 246; 
+  --color-primary-hover: 37 99 235; 
+  --color-primary-gradient-start: 30 64 175; 
+}
+
+[data-theme="purple"] {
+  --color-primary: 147 51 234;
+  --color-primary-hover: 126 34 206;
+  --color-primary-gradient-start: 168 85 247;
+}
+
+[data-theme="green"] {
+  --color-primary: 5 150 105;
+  --color-primary-hover: 4 120 87;
+  --color-primary-gradient-start: 6 95 70;
+}
+
+[data-theme="orange"] {
+  --color-primary: 249 115 22;
+  --color-primary-hover: 234 88 12;
+  --color-primary-gradient-start: 194 65 12;
+} */

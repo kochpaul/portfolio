@@ -2,22 +2,34 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="w-full fixed top-0 left-0 z-50 shadow-md bg-gradient-to-b from-black/80 via-black/60 to-transparent backdrop-blur-md">
+<header
+  class="w-full fixed top-0 left-0 z-50 shadow-md bg-gradient-to-b from-black/80 via-black/60 to-transparent backdrop-blur-md"
+>
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Logo -->
     <a href="/">
       <div class="flex items-center space-x-2">
-        <img src="/logo-256px-transparent.svg" alt="Paul Koch Logo" class="w-8 h-8 my-auto bg-primary rounded-full" />
-        <span class="text-white font-extrabold tracking-tight text-2xl">Paul Koch</span>
+        <img
+          src="/logo-256px-transparent.svg"
+          alt="Paul Koch Logo"
+          class="w-8 h-8 my-auto bg-primary rounded-full"
+        />
+        <span class="text-white font-extrabold tracking-tight text-2xl"
+          >Paul Koch</span
+        >
       </div>
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden md:flex bg-zinc-900 px-2 py-1 rounded-full items-center space-x-4 text-sm font-medium">
+    <nav
+      class="hidden md:flex bg-zinc-900 px-2 py-1 rounded-full items-center space-x-4 text-sm font-medium"
+    >
       <a
         href="/"
         class={`px-4 py-2 rounded-full ${
-          currentPath === "/" ? "text-white bg-primary shadow" : "text-zinc-300 hover:text-white hover:underline"
+          currentPath === "/"
+            ? "text-white bg-primary shadow"
+            : "text-zinc-300 hover:text-white hover:underline"
         }`}
       >
         Home
@@ -35,38 +47,45 @@ const currentPath = Astro.url.pathname;
       <a
         href="/about"
         class={`px-4 py-2 rounded-full ${
-          currentPath === "/about" ? "text-white bg-primary shadow" : "text-zinc-300 hover:text-white hover:underline"
+          currentPath === "/about"
+            ? "text-white bg-primary shadow"
+            : "text-zinc-300 hover:text-white hover:underline"
         }`}
       >
         About
       </a>
     </nav>
 
-     <!-- Social -->
-<div class="flex space-x-4 text-lg hidden md:block hover:text-primary transition-colors duration-300">
-      <a href="https://www.linkedin.com/in/paulfinnkoch/" target="_blank" rel="noopener noreferrer">
-
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 48 48"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+    <div class="flex items-center space-x-6">
+      <!-- Social -->
+      <div
+        class="flex space-x-4 text-lg hidden md:block hover:text-primary transition-colors duration-300"
+      >
+        <a
+          href="https://www.linkedin.com/in/paulfinnkoch/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <g clip-path="url(#clip0_17_68)">
-            <path
-              d="M44.4469 0H3.54375C1.58437 0 0 1.54688 0 3.45938V44.5312C0 46.4437 1.58437 48 3.54375 48H44.4469C46.4062 48 48 46.4438 48 44.5406V3.45938C48 1.54688 46.4062 0 44.4469 0ZM14.2406 40.9031H7.11563V17.9906H14.2406V40.9031ZM10.6781 14.8688C8.39062 14.8688 6.54375 13.0219 6.54375 10.7437C6.54375 8.46562 8.39062 6.61875 10.6781 6.61875C12.9563 6.61875 14.8031 8.46562 14.8031 10.7437C14.8031 13.0125 12.9563 14.8688 10.6781 14.8688ZM40.9031 40.9031H33.7875V29.7656C33.7875 27.1125 33.7406 23.6906 30.0844 23.6906C26.3812 23.6906 25.8187 26.5875 25.8187 29.5781V40.9031H18.7125V17.9906H25.5375V21.1219H25.6312C26.5781 19.3219 28.9031 17.4188 32.3625 17.4188C39.5719 17.4188 40.9031 22.1625 40.9031 28.3313V40.9031Z"
-              fill="currentColor"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_17_68">
-              <rect width="48" height="48" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
-      </a>
-      
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_17_68)">
+              <path
+                d="M44.4469 0H3.54375C1.58437 0 0 1.54688 0 3.45938V44.5312C0 46.4437 1.58437 48 3.54375 48H44.4469C46.4062 48 48 46.4438 48 44.5406V3.45938C48 1.54688 46.4062 0 44.4469 0ZM14.2406 40.9031H7.11563V17.9906H14.2406V40.9031ZM10.6781 14.8688C8.39062 14.8688 6.54375 13.0219 6.54375 10.7437C6.54375 8.46562 8.39062 6.61875 10.6781 6.61875C12.9563 6.61875 14.8031 8.46562 14.8031 10.7437C14.8031 13.0125 12.9563 14.8688 10.6781 14.8688ZM40.9031 40.9031H33.7875V29.7656C33.7875 27.1125 33.7406 23.6906 30.0844 23.6906C26.3812 23.6906 25.8187 26.5875 25.8187 29.5781V40.9031H18.7125V17.9906H25.5375V21.1219H25.6312C26.5781 19.3219 28.9031 17.4188 32.3625 17.4188C39.5719 17.4188 40.9031 22.1625 40.9031 28.3313V40.9031Z"
+                fill="currentColor"></path>
+            </g>
+            <defs>
+              <clipPath id="clip0_17_68">
+                <rect width="48" height="48" fill="white"></rect>
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+      </div>
     </div>
 
     <!-- Mobile Toggle -->
@@ -75,8 +94,18 @@ const currentPath = Astro.url.pathname;
       onclick="document.getElementById('mobile-overlay')?.classList.remove('hidden')"
       aria-label="Menü öffnen"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 6h16M4 12h16M4 18h16" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-8 h-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1"
+          d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
   </div>
@@ -92,8 +121,18 @@ const currentPath = Astro.url.pathname;
       onclick="document.getElementById('mobile-overlay')?.classList.add('hidden')"
       aria-label="Menü schließen"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-8 h-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
 
@@ -114,7 +153,9 @@ const currentPath = Astro.url.pathname;
         <a
           href="/projects"
           class={`hover:text-primary ${
-            currentPath.startsWith("/project") || currentPath === "/projects" ? "text-primary font-semibold" : ""
+            currentPath.startsWith("/project") || currentPath === "/projects"
+              ? "text-primary font-semibold"
+              : ""
           }`}
           onclick="document.getElementById('mobile-overlay')?.classList.add('hidden')"
         >

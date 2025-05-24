@@ -6,17 +6,18 @@ const { blok } = Astro.props;
 const reverse = blok.reverse_on_mobile;
 ---
 
-<section class="py-16 bg-black text-white max-w-7xl" {...storyblokEditable(blok)}>
-  <div class={`grid grid-cols-1 md:grid-cols-2 gap-16 items-start  ${reverse ? "md:flex-row-reverse" : ""}`}>
+<section
+  class="py-16 bg-black text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  {...storyblokEditable(blok)}
+>
+  <div
+    class={`grid grid-cols-1 md:grid-cols-2 gap-16 items-start  ${reverse ? "md:flex-row-reverse" : ""}`}
+  >
     <div>
-      {blok.left?.map((inner) => (
-        <StoryblokComponent blok={inner} />
-      ))}
+      {blok.left?.map((inner) => <StoryblokComponent blok={inner} />)}
     </div>
     <div>
-      {blok.right?.map((inner) => (
-        <StoryblokComponent blok={inner} />
-      ))}
+      {blok.right?.map((inner) => <StoryblokComponent blok={inner} />)}
     </div>
   </div>
 </section>

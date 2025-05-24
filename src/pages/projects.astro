@@ -60,7 +60,7 @@ projects.sort((a, b) => (a.content.index ?? 999) - (b.content.index ?? 999));
                 <div class="flex flex-wrap gap-2 mb-2">
                   {p.tags?.map((tag) =>
                     typeof tag === "object" ? (
-                      <span class="text-xs bg-zinc-800 text-white px-3 py-1 rounded-full">
+                      <span class="text-xs text-primary px-3 py-1 rounded-full border border-primary ">
                         {tag.tag}
                       </span>
                     ) : null
