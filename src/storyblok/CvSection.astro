@@ -19,7 +19,7 @@ const { blok } = Astro.props;
           <a
             href={blok.cta_url}
             target="_blank"
-            class="flex gap-2 h-9 justify-center text-sm text-center bg-gradient-to-r from-primary-gradientStart to-primary text-white px-4 py-2 rounded-full shadow hover:bg-gray-200 transition"
+            class="flex group gap-2 h-9 justify-center text-sm text-center bg-gradient-to-r from-primary-gradientStart to-primary text-white px-4 py-2 rounded-full shadow hover:bg-gray-200 transition"
           >
             {blok.cta_text || "Lebenslauf herunterladen"}
             <svg
@@ -28,7 +28,7 @@ const { blok } = Astro.props;
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="size-4"
+              class="size-4 transform transition-transform duration-300 ease-out group-hover:scale-110"
             >
               <path
                 stroke-linecap="round"

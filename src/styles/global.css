@@ -1,7 +1,8 @@
 :root {
   --color-primary: 249 115 22;
   --color-primary-hover: 234 88 12;
-  --color-primary-gradient-start: 194 65 12;
+  --color-primary-gradient-start: 194 30 12;
+  /* --color-primary-gradient-start: 212 163 0; */
 }
 
 /* Different Color-Themes if needed */

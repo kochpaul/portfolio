@@ -12,7 +12,7 @@ const currentPath = Astro.url.pathname;
         <img
           src="/logo-256px-transparent.svg"
           alt="Paul Koch Logo"
-          class="w-8 h-8 my-auto bg-primary rounded-full"
+          class="w-8 h-8 my-auto bg-gradient-to-r from-primary-gradientStart to-primary rounded-full"
         />
         <span class="text-white font-extrabold tracking-tight text-2xl"
           >Paul Koch</span
@@ -28,7 +28,7 @@ const currentPath = Astro.url.pathname;
         href="/"
         class={`px-4 py-2 rounded-full ${
           currentPath === "/"
-            ? "text-white bg-primary shadow"
+            ? "text-white bg-gradient-to-r from-primary-gradientStart to-primary shadow"
             : "text-zinc-300 hover:text-white hover:underline"
         }`}
       >
@@ -38,7 +38,7 @@ const currentPath = Astro.url.pathname;
         href="/projects"
         class={`px-4 py-2 rounded-full ${
           currentPath.startsWith("/project") || currentPath === "/projects"
-            ? "text-white bg-primary shadow"
+            ? "text-white bg-gradient-to-r from-primary-gradientStart to-primary shadow"
             : "text-zinc-300 hover:text-white hover:underline"
         }`}
       >
@@ -48,7 +48,7 @@ const currentPath = Astro.url.pathname;
         href="/about"
         class={`px-4 py-2 rounded-full ${
           currentPath === "/about"
-            ? "text-white bg-primary shadow"
+            ? "text-white bg-gradient-to-r from-primary-gradientStart to-primary shadow"
             : "text-zinc-300 hover:text-white hover:underline"
         }`}
       >
