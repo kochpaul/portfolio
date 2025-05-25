@@ -1,12 +1,16 @@
 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g clip-path="url(#clip0_3_312)">
-<rect width="48" height="48" rx="24" fill="#9333EA"/>
+<rect width="48" height="48" rx="24" fill="url(#paint0_linear_3_312)"/>
 <rect x="-4.5" y="-5.8125" width="53.8125" height="53.8125" fill="url(#pattern0_3_312)"/>
 </g>
 <defs>
 <pattern id="pattern0_3_312" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_3_312" transform="scale(0.00214592)"/>
 </pattern>
+<linearGradient id="paint0_linear_3_312" x1="0" y1="24" x2="48" y2="24" gradientUnits="userSpaceOnUse">
+<stop stop-color="#C2410C"/>
+<stop offset="1" stop-color="#F97316"/>
+</linearGradient>
 <clipPath id="clip0_3_312">
 <rect width="48" height="48" rx="24" fill="white"/>
 </clipPath>
