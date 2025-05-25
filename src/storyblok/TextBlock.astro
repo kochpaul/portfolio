@@ -4,7 +4,9 @@ import StoryblokRichText from "../components/StoryblokRichText.astro";
 const { blok } = Astro.props;
 ---
 
-<div class="prose max-w-7xl mx-auto pt-6 sm:pt-12 px-4 sm:px-6 lg:px-8">
+<div
+  class={`prose max-w-7xl mx-auto pt-6 sm:pt-12 ${blok.usePadding ? "px-4 sm:px-6 lg:px-8" : ""}`}
+>
   {
     blok.text && (
       <div>

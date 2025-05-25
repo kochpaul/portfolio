@@ -36,6 +36,7 @@ export default defineConfig({
         KPIItem: "storyblok/KPIItemWrapper",
         USPSection: "storyblok/USPSection",
         Headline: "storyblok/Headline",
+        TechLogoCarousel: "storyblok/TechLogoCarousel",
       },
     }),
     tailwind(),
